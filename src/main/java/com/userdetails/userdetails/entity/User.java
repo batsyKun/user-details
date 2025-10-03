@@ -1,5 +1,6 @@
 package com.userdetails.userdetails.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.time.LocalDate;
@@ -42,6 +43,7 @@ public class User {
     private String photoPath;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Address> addresses;
 
     // Getters and setters

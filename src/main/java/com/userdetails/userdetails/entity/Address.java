@@ -1,6 +1,7 @@
 package com.userdetails.userdetails.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
@@ -31,14 +32,15 @@ public class Address {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
+    @JsonBackReference
     private User user;
 
     // Getters and setters
     public Long getAddressId() { return addressId; }
     public void setAddressId(Long addressId) { this.addressId = addressId; }
 
-    public String getLine1() { return line1; }
-    public void setLine1(String line1) { this.line1 = line1; }
+    public String getline1() { return line1; }
+    public void setline1(String line1) { this.line1 = line1; }
 
     public String getLine2() { return line2; }
     public void setLine2(String line2) { this.line2 = line2; }
